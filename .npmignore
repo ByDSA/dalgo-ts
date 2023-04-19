@@ -1,5 +1,5 @@
 # sources
-tsconfig.json
+tsconfig*.json
 src/
 
 # tests
@@ -11,8 +11,12 @@ node_modules/
 coverage/
 docs/
 ./typedoc.json
+.husky/
+.github/
+.eslintrc.*
+.commitlintrc.*
+.prettierignore
 
 # keys
-.npmrc
 .env
 .env.*
