@@ -10,8 +10,22 @@ fatal_error() {
 }
 
 assert_valid_current_branch() {
-  if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
-    echo "Primer commit. Se permite subir a cualquier rama."
+  echo "Comprobando ramas remotas ..."
+  local remotes
+  set +e
+  remotes=$(git branch -a grep remotes)
+  set -e
+
+  if [ -z "$remotes" ]; then
+    any_branch_flag=1
+    echo "No hay ramas remotas. Primer push."
+  else
+    echo "Ramas remotas:"
+    echo "$remotes"
+  fi
+
+  if [ -n "$any_branch_flag" ]; then
+    echo "Se omite la verificación de la rama actual."
     exit 0
   fi
 
