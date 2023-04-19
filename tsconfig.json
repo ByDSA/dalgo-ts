@@ -24,7 +24,6 @@
     }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "files": ["src/index.ts"],
   "exclude": ["node_modules"],
   "types": ["node"]
 }

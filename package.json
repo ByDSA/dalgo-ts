@@ -1,26 +1,18 @@
 {
   "name": "dalgo",
-  "description": "Estructuras y algoritmos comunes de programación en TypeScript",
   "version": "0.0.1",
-  "author": "Dani Sales",
-  "contributors": [
-    {
-      "name": "Daniel Sales",
-      "email": "danisales.es@gmail.com"
-    }
-  ],
-  "license": "UNLICENSED",
-  "private": false,
-  "main": "build/index.js",
+  "description": "Estructuras y algoritmos comunes de programación en TypeScript",
   "scripts": {
-    "install": "pnpm build",
-    "prebuild": "pnpm clean:build",
+    "prebuild": "pnpm clean:build && pnpm rebuild && pnpm test",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm test:coverage && pnpm lint:fix && pnpm build",
+    "postpublish": "pnpm clean",
     "build": "pnpm build:raw",
     "build:raw": "tsc -p tsconfig-build.json",
     "clean:build": "rm -rf build",
     "clean:modules": "rm -rf node_modules",
     "test": "NODE_ENV=test jest --maxWorkers=1",
-    "test:watch": "npm test -- --watch",
+    "test:watch": "pnpm test -- --watch",
     "test:coverage": "pnpm test -- --coverage",
     "release": "standard-version",
     "prepare": "husky install",
@@ -28,6 +20,16 @@
     "lint:prettier": "prettier **/src/*.ts",
     "lint:fix": "prettier --write **/src/*.ts && eslint ./src/*.ts --fix"
   },
+  "author": "Daniel Sales Álvarez <danisales.es@gmail.com>",
+  "license": "GPLv3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByDSA/dalgo-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ByDSA/dalgo-ts/issues"
+  },
+  "homepage": "https://github.com/ByDSA/dalgo-ts#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "29.5.0",
