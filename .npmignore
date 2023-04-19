@@ -1,0 +1,8 @@
+tsconfig.json
+jest.config.js
+src/
+node_modules/
+coverage/
+docs/
+./typedoc.json
+*spec.js
