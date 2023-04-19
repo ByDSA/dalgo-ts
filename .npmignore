@@ -1,8 +1,18 @@
+# sources
 tsconfig.json
-jest.config.js
 src/
+
+# tests
+jest.config.js
+*spec.js
+
+# dev
 node_modules/
 coverage/
 docs/
 ./typedoc.json
-*spec.js
+
+# keys
+.npmrc
+.env
+.env.*

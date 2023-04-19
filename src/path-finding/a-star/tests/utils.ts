@@ -12,3 +12,8 @@ export function expectPath<D extends number>(path: PathNode<GridPoint<D>>[], exp
     expectGridPointPosition(pathNode.data, expected[index]);
   } );
 }
+
+export function showPath<D extends number>(path: PathNode<GridPoint<D>>[]) {
+  for (let i = 0; i < path.length; i++)
+    console.log(...path[i].data.position);
+}

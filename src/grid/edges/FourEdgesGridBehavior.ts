@@ -1,4 +1,4 @@
-import { assertDefined } from "#src/utils";
+import { assertDefined } from "~/utils";
 import { Vector2 } from "../../vector";
 import Grid2D from "./Grid2D";
 import GridPoint2D from "./GridPoint2D";

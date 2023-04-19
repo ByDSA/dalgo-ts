@@ -18,7 +18,7 @@
     "lib": ["es2022", "dom"],
     "baseUrl": ".",
     "paths": {
-      "#src/*": ["src/*"],
+      "~/*": ["src/*"],
       "#tests/*": ["tests/*"],
       "#tests": ["tests"]
     }
