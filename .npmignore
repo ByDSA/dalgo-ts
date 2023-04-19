@@ -6,3 +6,4 @@ coverage/
 docs/
 ./typedoc.json
 *spec.js
+.npmrc

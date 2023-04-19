@@ -1,5 +1,9 @@
+# dev
 node_modules/
 /coverage/
 /build/
+
+# keys
 .env
 .env.*
+.npmrc
