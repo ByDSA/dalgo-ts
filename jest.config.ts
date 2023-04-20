@@ -1,4 +1,14 @@
-module.exports = {
+import { Config } from "jest";
+
+const coverageThreshold: Config["coverageThreshold"] = {
+  global: {
+    branches: 80,
+    functions: 80,
+    lines: 80,
+    statements: 80,
+  },
+};
+const config: Config = {
   moduleDirectories: [
     "node_modules",
     "src",
@@ -17,4 +27,7 @@ module.exports = {
     "^~($|/.*)$": "<rootDir>/src/$1",
     "^#tests($|/.*)$": "<rootDir>/tests/$1",
   },
+  coverageThreshold,
 };
+
+export default config;
