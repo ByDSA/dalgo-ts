@@ -1,11 +1,17 @@
+/* eslint-disable max-classes-per-file */
 import { VectorN } from "../vector";
 
 export namespace MultiArray {
   export type Initializator<T, D extends number> = (position: VectorN<D>)=> T;
 
-  export class ArrayDimensionOverflowError extends Error {
+  export class DimensionOverflowError extends Error {
     constructor() {
       super("Array dimension overflow");
+    }
+  }
+  export class DimensionUnderflowError extends Error {
+    constructor() {
+      super("Array dimension underflow");
     }
   }
 
@@ -21,11 +27,16 @@ export namespace MultiArray {
   }
 
   export function get<T, D extends number>(v: Type<T, D>, ...subindexes: VectorN<D>): T {
-    if (!subindexes || subindexes.length === 0) {
+    if (subindexes.length === 0) {
       if (!Array.isArray(v))
         return v;
 
-      throw new ArrayDimensionOverflowError();
+      throw new DimensionUnderflowError();
+    }
+
+    if (subindexes.length > 0) {
+      if (!Array.isArray(v))
+        throw new DimensionOverflowError();
     }
 
     const index = subindexes[0];
@@ -36,17 +47,20 @@ export namespace MultiArray {
   }
 
   export function set<T, D extends number>(v: Type<T, D>, value: T, ...subindexes: VectorN<D>): void {
-    if (!subindexes || subindexes.length === 0)
-      throw new Error("Array no dimension");
+    if (subindexes.length > 0) {
+      if (!Array.isArray(v))
+        throw new DimensionOverflowError();
+    }
 
-    if (subindexes && subindexes.length === 1) {
-      if (Array.isArray(v[0]))
-        throw new Error("Array dimension incorrect");
+    if (subindexes.length === 1) {
+      if (!Array.isArray(v[0])) {
+        // eslint-disable-next-line no-param-reassign
+        v[subindexes[0]] = value;
 
-      // eslint-disable-next-line no-param-reassign
-      v[subindexes[0]] = value;
+        return;
+      }
 
-      return;
+      throw new DimensionUnderflowError();
     }
 
     const index = subindexes[0];
