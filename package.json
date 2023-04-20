@@ -1,6 +1,6 @@
 {
   "name": "@ByDSA/dalgo",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Estructuras y algoritmos comunes de programación en TypeScript.",
   "scripts": {
     "prepublishOnly": "pnpm lint:fix && pnpm install && pnpm test:coverage && pnpm build",
