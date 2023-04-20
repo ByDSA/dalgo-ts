@@ -1,5 +1,5 @@
+import { BiMap } from "../../bimap";
 import AStarNode from "./AStarNode";
-import BiMap from "./BiMap";
 
 export default class BiMapNodeData<T> {
   private bimap = new BiMap<AStarNode, T>();
