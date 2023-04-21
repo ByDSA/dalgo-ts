@@ -18,6 +18,7 @@
     "lint:eslint": "eslint **/src/*.ts",
     "lint:prettier": "prettier **/src/*.ts",
     "lint:fix": "prettier --write **/src/*.ts && eslint ./src/*.ts --fix",
+    "git:pr": "pnpm git:pr:create && pnpm git:pr:merge-delete",
     "git:pr:create": "gh pr create --base main --fill",
     "git:pr:merge": "gh pr merge --auto --rebase",
     "git:pr:merge-delete": "gh pr merge --auto --rebase --delete-branch"
