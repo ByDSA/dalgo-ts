@@ -15,6 +15,6 @@ export default class AStarNode {
   }
 
   toString() {
-    return `{f: ${ this.f }, g: ${ this.g }, h: ${ this.h }}`;
+    return `{f: ${this.f}, g: ${this.g}, h: ${this.h}}`;
   }
 }

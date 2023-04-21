@@ -44,7 +44,7 @@ export default abstract class AStar<T> {
 
   private nodeDataBiMap = new BiMapNodeData<T>();
 
-  constructor( {start, end, h, g, getNeighborsOf}: Params<T>) {
+  constructor( { start, end, h, g, getNeighborsOf }: Params<T>) {
     this.startData = start;
     this.endData = end;
     this.h = h;

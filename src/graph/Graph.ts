@@ -8,12 +8,13 @@ export default abstract class Graph<N, L> implements ISimpleMap<L, N> {
   private neighbors: GraphNeighborsBehavior<L, N>;
 
   constructor(neighbors?: GraphNeighborsBehavior<L, N>) {
-    this.neighbors = neighbors ?? new (class A implements GraphNeighborsBehavior<L, N> {
-      // eslint-disable-next-line class-methods-use-this
-      get(position: L): N[] {
-        return This.calcNeighborsOf(position);
-      }
-    } )();
+    this.neighbors = neighbors
+      ?? new (class A implements GraphNeighborsBehavior<L, N> {
+        // eslint-disable-next-line class-methods-use-this
+        get(position: L): N[] {
+          return This.calcNeighborsOf(position);
+        }
+      } )();
 
     const This = this;
   }

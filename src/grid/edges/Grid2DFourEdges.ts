@@ -7,7 +7,8 @@ import { FourEdges2D } from "./types";
 export default class Grid2DFourEdges
   extends Grid2D<GridPoint2DFourEdges>
   implements FourEdgesBehavior<FourEdges2D> {
-  protected fourEdges: FourEdgesGridBehavior<GridPoint2DFourEdges, this> = new FourEdgesGridBehavior();
+  protected fourEdges:
+  FourEdgesGridBehavior<GridPoint2DFourEdges, this> = new FourEdgesGridBehavior();
 
   // eslint-disable-next-line class-methods-use-this
   protected createNode(position: Vector2): GridPoint2DFourEdges {

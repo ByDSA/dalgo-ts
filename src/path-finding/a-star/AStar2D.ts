@@ -18,10 +18,10 @@ type Params = Omit<AStarParams<GridPoint2D>, "getNeighborsOf" | "h"> & {
 export default class AStar2D extends AStar<GridPoint2D> {
   private grid: Grid2D<GridPoint2D>;
 
-  constructor( {grid,
+  constructor( { grid,
     start,
     end,
-    h = manhattanDistance}: Params) {
+    h = manhattanDistance }: Params) {
     super( {
       start,
       end,

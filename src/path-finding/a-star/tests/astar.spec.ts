@@ -18,7 +18,7 @@ describe("grid 4x4 sin obstáculos", () => {
   } );
 
   it("aStar create", () => {
-    const start = grid.get([0,0]);
+    const start = grid.get([0, 0]);
     const end = grid.get([grid.size[0] - 1, grid.size[1] - 1]);
 
     aStar = new AStar2D( {
@@ -38,13 +38,13 @@ describe("grid 4x4 sin obstáculos", () => {
     expect(got.length).toBe(7);
 
     expectPath(got, [
-      [0,0],
-      [1,0],
-      [2,0],
-      [3,0],
-      [3,1],
-      [3,2],
-      [3,3],
+      [0, 0],
+      [1, 0],
+      [2, 0],
+      [3, 0],
+      [3, 1],
+      [3, 2],
+      [3, 3],
     ]);
   } );
 } );
@@ -69,7 +69,7 @@ describe("grid 4x4 con flat walls", () => {
   } );
 
   it("aStar create", () => {
-    const start = grid.get([0,0]);
+    const start = grid.get([0, 0]);
     const end = grid.get([grid.size[0] - 1, grid.size[1] - 1]);
 
     aStar = new AStar2D( {
@@ -89,13 +89,13 @@ describe("grid 4x4 con flat walls", () => {
     expect(got.length).toBe(7);
 
     expectPath(got, [
-      [0,0],
-      [0,1],
-      [1,1],
-      [2,1],
-      [2,2],
-      [2,3],
-      [3,3],
+      [0, 0],
+      [0, 1],
+      [1, 1],
+      [2, 1],
+      [2, 2],
+      [2, 3],
+      [3, 3],
     ]);
   } );
 } );
@@ -106,7 +106,7 @@ function genSample4x4() {
   } );
 
   grid.init();
-  const start = grid.get([0,0]);
+  const start = grid.get([0, 0]);
   const end = grid.get([grid.size[0] - 1, grid.size[1] - 1]);
   const aStar: AStar2D = new AStar2D( {
     start,
@@ -125,8 +125,8 @@ it("expect path error", () => {
 
   expect(() => {
     expectPath(got, [
-      [0,0],
-      [0,1],
+      [0, 0],
+      [0, 1],
     ]);
   } ).toThrow();
 } );

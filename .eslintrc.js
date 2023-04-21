@@ -6,25 +6,25 @@ module.exports = {
     "jest/globals": true,
   },
   globals: {
-    "NodeJS": true,
-    "React": true,
+    NodeJS: true,
+    React: true,
   },
-  extends: ["airbnb-base", "prettier"],
+  extends: ["airbnb-base"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "import", "jest", "prettier"],
+  plugins: ["@typescript-eslint", "import", "jest"],
   rules: {
     "import/no-internal-modules": ["error", {
-      "allow": ["**/src/{bimap,vector,graph,grid,utils,path-finding/**}{,/index}", "**/src/**/tests/**", "**/utils.ts", "**/utils/**"],
+      allow: ["**/src/{bimap,vector,graph,grid,utils,path-finding/**}{,/index}", "**/src/**/tests/**", "**/utils.ts", "**/utils/**"],
     }],
     "no-invalid-this": ["error", {
-      "capIsConstructor": false,
+      capIsConstructor: false,
     }],
     "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": true,
+      devDependencies: true,
     }],
     "no-useless-constructor": "off",
     "no-empty-function": [
