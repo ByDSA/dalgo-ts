@@ -1,6 +1,5 @@
-/* eslint-disable import/prefer-default-export */
 import { GridPoint } from "../../../grid";
-import { expectGridPointPosition } from "../../../grid/tests/utils";
+import { expectGridPointPosition } from "../../../grid/tests";
 import { VectorN } from "../../../vector";
 import { PathNode } from "../AStar";
 

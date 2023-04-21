@@ -9,7 +9,15 @@ export default abstract class GraphCachedNeighborsBehavior<L, N> implements Grap
     this.cache = new Map();
   }
 
+  /**
+   *
+   * @deprecated Use getOrCalc instead
+   */
   get(location: L): N[] {
+    return this.getOrCalc(location);
+  }
+
+  getOrCalc(location: L): N[] {
     const cached = this.cache.get(location);
 
     if (cached)

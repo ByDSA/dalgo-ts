@@ -1,22 +1,20 @@
 export default class AStarNode {
-  f: number;
+  f: number; // total cost function
 
-  g: number;
+  g: number; // cost function from start to the current grid point
 
-  h: number;
+  h: number; // heuristic estimated cost function from current grid point to the goal
 
-  parent: this | undefined;
-
-  caption: string | undefined;
+  parent: this | undefined; // immediate source of the current grid point
 
   constructor() {
-    this.f = 0; // total cost function
-    this.g = 0; // cost function from start to the current grid point
-    this.h = 0; // heuristic estimated cost function from current grid point to the goal
-    this.parent = undefined; // immediate source of the current grid point
+    this.f = 0;
+    this.g = 0;
+    this.h = 0;
+    this.parent = undefined;
   }
 
   toString() {
-    return this.caption ?? `{f: ${ this.f }, g: ${ this.g }, h: ${ this.h }}`;
+    return `{f: ${ this.f }, g: ${ this.g }, h: ${ this.h }}`;
   }
 }

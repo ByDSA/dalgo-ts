@@ -18,7 +18,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "import", "jest", "prettier"],
   rules: {
     "import/no-internal-modules": ["error", {
-      "allow": ["**/src/{vector,graph,grid,path-finding/**}{,/index}", "**src/**/tests/**", "**/utils.ts"],
+      "allow": ["**/src/{bimap,vector,graph,grid,utils,path-finding/**}{,/index}", "**/src/**/tests/**", "**/utils.ts", "**/utils/**"],
     }],
     "no-invalid-this": ["error", {
       "capIsConstructor": false,

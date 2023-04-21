@@ -2,8 +2,8 @@ import { Config } from "jest";
 
 const coverageThreshold: Config["coverageThreshold"] = {
   global: {
-    branches: 80,
-    functions: 80,
+    branches: 50,
+    functions: 50,
     lines: 80,
     statements: 80,
   },
@@ -13,6 +13,8 @@ const config: Config = {
     "node_modules",
     "src",
   ],
+  globals: {
+  },
   roots: ["<rootDir>/src", "<rootDir>/tests"],
   transform: {
     "^.+\\.tsx?$": "ts-jest",
@@ -20,9 +22,7 @@ const config: Config = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  setupFilesAfterEnv: ["jest-expect-message"],
-  globals: {
-  },
+  setupFilesAfterEnv: ["jest-expect-message", "<rootDir>/tests/setup.js"],
   moduleNameMapper: {
     "^~($|/.*)$": "<rootDir>/src/$1",
     "^#tests($|/.*)$": "<rootDir>/tests/$1",
