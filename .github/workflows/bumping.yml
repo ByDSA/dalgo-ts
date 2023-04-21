@@ -22,7 +22,6 @@ jobs:
           ref: ${{ steps.current_branch.outputs.branch }}
           fetch-depth: 0
 
-      # Build steps
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
@@ -91,4 +90,14 @@ jobs:
             fi
           fi
 
-          git push --no-verify --follow-tags origin ${{ steps.current_branch.outputs.branch }}
+          if [[ $(git status -s) ]]; then
+            git push --no-verify --follow-tags origin ${{ steps.current_branch.outputs.branch }}
+          else
+            echo "No ha habido ningún cambio en el proyecto en el proceso de bumping."
+            exit 0
+          fi
+
+      # Proceso de publicado (publish)
+      - name: Proceso de publicado
+        run: |
+          pnpm publish
