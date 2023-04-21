@@ -96,8 +96,3 @@ jobs:
             echo "No ha habido ningún cambio en el proyecto en el proceso de bumping."
             exit 0
           fi
-
-      # Proceso de publicado (publish)
-      - name: Proceso de publicado
-        run: |
-          pnpm publish
