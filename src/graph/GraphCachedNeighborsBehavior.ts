@@ -2,7 +2,8 @@
 import GraphNeighborsBehavior from "./GraphNeighborsBehavior";
 import ISimpleMap from "./ISimpleMap";
 
-export default abstract class GraphCachedNeighborsBehavior<L, N> implements GraphNeighborsBehavior<L, N> {
+export default abstract class GraphCachedNeighborsBehavior<L, N>
+implements GraphNeighborsBehavior<L, N> {
   private readonly cache: ISimpleMap<L, N[]>;
 
   constructor() {

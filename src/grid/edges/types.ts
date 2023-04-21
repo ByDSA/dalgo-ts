@@ -12,7 +12,12 @@ export enum Edges2D {
 
 export type FourEdges2D = Edges2D.Bottom | Edges2D.Left | Edges2D.Right | Edges2D.Top;
 
-export type EightEdges2D = Edges2D.BottomLeft | Edges2D.BottomRight | Edges2D.TopLeft | Edges2D.TopRight | FourEdges2D;
+export type EightEdges2D =
+Edges2D.BottomLeft
+| Edges2D.BottomRight
+| Edges2D.TopLeft
+| Edges2D.TopRight
+| FourEdges2D;
 
 export interface CanMove2DAxis {
   canMoveLeft(): boolean;

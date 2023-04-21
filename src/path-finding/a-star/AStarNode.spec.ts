@@ -7,10 +7,7 @@ it("to string", () => {
   actual.g = 2;
   actual.h = 1;
 
-  expect(actual.toString().includes(actual.f.toString(),
-  )).toBeTruthy();
-  expect(actual.toString().includes(actual.g.toString(),
-  )).toBeTruthy();
-  expect(actual.toString().includes(actual.h.toString(),
-  )).toBeTruthy();
+  expect(actual.toString().includes(actual.f.toString())).toBeTruthy();
+  expect(actual.toString().includes(actual.g.toString())).toBeTruthy();
+  expect(actual.toString().includes(actual.h.toString())).toBeTruthy();
 } );

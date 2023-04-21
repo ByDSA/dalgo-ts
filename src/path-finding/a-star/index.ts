@@ -1,5 +1,8 @@
 export {
-  default as AStar, AStarNodeFunc, AStarParams, GetNeighborsOf as CalcNeighborsOf, Heuristic, PathNode,
+  default as AStar, AStarNodeFunc,
+  AStarParams,
+  GetNeighborsOf as CalcNeighborsOf,
+  Heuristic, PathNode,
 } from "./AStar";
 
 export {

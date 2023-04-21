@@ -22,7 +22,10 @@ export namespace MultiArray {
   Array<T | Type<T, D>>;
 
   // eslint-disable-next-line import/prefer-default-export
-  export function create<T, D extends number>(initializator: Initializator<T, D>, ...dimensions: VectorN<D>): Type<T, D> {
+  export function create<T, D extends number>(
+    initializator: Initializator<T, D>,
+    ...dimensions: VectorN<D>
+  ): Type<T, D> {
     return innerCreate<T, D>(initializator, [], dimensions as number[]) as Type<T, D>;
   }
 
@@ -46,7 +49,11 @@ export namespace MultiArray {
     return get<T, D>(subArray, ...newSubindexes);
   }
 
-  export function set<T, D extends number>(v: Type<T, D>, value: T, ...subindexes: VectorN<D>): void {
+  export function set<T, D extends number>(
+    v: Type<T, D>,
+    value: T,
+    ...subindexes: VectorN<D>
+  ): void {
     if (subindexes.length > 0) {
       if (!Array.isArray(v))
         throw new DimensionOverflowError();
@@ -72,7 +79,11 @@ export namespace MultiArray {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-function innerCreate<T, D extends number>(initializator: MultiArray.Initializator<T, D>, iterator: number[], dimensions: number[]): MultiArray.Type<T, D> | T {
+function innerCreate<T, D extends number>(
+  initializator: MultiArray.Initializator<T, D>,
+  iterator: number[],
+  dimensions: number[],
+): MultiArray.Type<T, D> | T {
   if (dimensions.length === 0) {
     const content = initializator(iterator as VectorN<D>);
 

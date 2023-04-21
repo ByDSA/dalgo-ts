@@ -25,19 +25,27 @@ export default class GridPoint2DFourEdges
   }
 
   setCanMoveLeft(canMove: boolean) {
-    this._canMoveByte = canMove ? this._canMoveByte | Edges2D.Left : this._canMoveByte & ~Edges2D.Left;
+    this._canMoveByte = canMove
+      ? this._canMoveByte | Edges2D.Left
+      : this._canMoveByte & ~Edges2D.Left;
   }
 
   setCanMoveTop(canMove: boolean) {
-    this._canMoveByte = canMove ? this._canMoveByte | Edges2D.Top : this._canMoveByte & ~Edges2D.Top;
+    this._canMoveByte = canMove
+      ? this._canMoveByte | Edges2D.Top
+      : this._canMoveByte & ~Edges2D.Top;
   }
 
   setCanMoveRight(canMove: boolean) {
-    this._canMoveByte = canMove ? this._canMoveByte | Edges2D.Right : this._canMoveByte & ~Edges2D.Right;
+    this._canMoveByte = canMove
+      ? this._canMoveByte | Edges2D.Right
+      : this._canMoveByte & ~Edges2D.Right;
   }
 
   setCanMoveBottom(canMove: boolean) {
-    this._canMoveByte = canMove ? this._canMoveByte | Edges2D.Bottom : this._canMoveByte & ~Edges2D.Bottom;
+    this._canMoveByte = canMove
+      ? this._canMoveByte | Edges2D.Bottom
+      : this._canMoveByte & ~Edges2D.Bottom;
   }
 
   constructor(position: Vector2) {

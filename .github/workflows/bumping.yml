@@ -68,7 +68,7 @@ jobs:
 
           if [ $first_release -eq 1 ]; then
             echo "No se ha encontrado ningún commit de release. Se considera que es la primera release."
-            npm run release -- --first-release --no-verify
+            pnpm version:release -- --first-release --no-verify
           else
             echo "Último commit de release: $last_release_commit"
             echo ""
@@ -86,11 +86,11 @@ jobs:
               echo "Commits nuevos a considerar para el bumping:"
               git log $last_release_commit..HEAD --pretty=format:"%s" | grep -E "$filter"
 
-              npm run release -- --no-verify
+              pnpm version:release -- --no-verify
             fi
           fi
 
-          if [[ $(git status -s) ]]; then
+          if [[ $(git log --branches --not --remotes) ]]; then
             git push --no-verify --follow-tags origin ${{ steps.current_branch.outputs.branch }}
           else
             echo "No ha habido ningún cambio en el proyecto en el proceso de bumping."

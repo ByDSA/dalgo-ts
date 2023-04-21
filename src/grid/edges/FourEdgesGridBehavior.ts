@@ -15,7 +15,10 @@ export interface EdgesBehavior<P, E> {
 
 export type FourEdgesBehavior<E> = EdgesBehavior<Vector2, E>;
 
-export default class FourEdgesGridBehavior<N extends NodeType, G extends GridType<N> = GridType<N>> implements FourEdgesBehavior<FourEdges2D>{
+export default class FourEdgesGridBehavior<
+  N extends NodeType,
+  G extends GridType<N> = GridType<N>
+> implements FourEdgesBehavior<FourEdges2D> {
   private grid: G | undefined;
 
   setGrid(grid: G) {

@@ -10,13 +10,17 @@ type GridParams<D extends number, N extends GridPoint<D>> = {
   neighbors?: GraphNeighborsBehavior<VectorN<D>, N>;
 };
 
-export default abstract class Grid<D extends number, N extends GridPoint<D> = GridPoint<D>> extends Graph<N, VectorN<D>> {
+export default abstract class Grid<
+  D extends number,
+  N extends GridPoint<D> = GridPoint<D>
+> extends Graph<N, VectorN<D>> {
   readonly size: VectorN<D>;
 
   protected content!: MultiArray.Type<N, D>;
 
-  constructor( {size, neighbors}: GridParams<D, N>) {
-    const n: GraphNeighborsBehavior<VectorN<D>, N> = neighbors ?? new (class A extends GraphCachedNeighborsBehavior<VectorN<D>, N> {
+  constructor( { size, neighbors }: GridParams<D, N>) {
+    const n: GraphNeighborsBehavior<VectorN<D>, N> = neighbors
+    ?? new (class A extends GraphCachedNeighborsBehavior<VectorN<D>, N> {
       // eslint-disable-next-line class-methods-use-this
       calcNeighborsOf(position: VectorN<D>): N[] {
         return This.calcNeighborsOf(position);
@@ -50,7 +54,7 @@ export default abstract class Grid<D extends number, N extends GridPoint<D> = Gr
   }
 
   init() {
-    const initializator: MultiArray.Initializator<N, D> = (position: VectorN<D>) => this.createNode(position);
+    const initializator = (position: VectorN<D>) => this.createNode(position);
 
     this.content = MultiArray.create<N, D>(initializator, ...this.size) as MultiArray.Type<N, D>;
   }
