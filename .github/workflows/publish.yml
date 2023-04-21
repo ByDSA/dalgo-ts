@@ -44,6 +44,8 @@ jobs:
         run: pnpm install
 
       - name: Publish package 📦
-        run: npm publish
+        run: |
+          pnpm build
+          pnpm publish build --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
