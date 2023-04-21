@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/ByDSA/dalgo-ts/compare/v0.1.0...v0.1.1) (2023-04-21)
+
+
+### Bug Fixes
+
+* algunos bugs de acceso a índices del multiarray ([1a0d515](https://github.com/ByDSA/dalgo-ts/commit/1a0d515ce65a6753e78ea1c1d281c1c3408e4e37))
+
 ## [0.1.0](https://github.com/ByDSA/dalgo-ts/compare/v0.0.1...v0.1.0) (2023-04-20)
 
 
