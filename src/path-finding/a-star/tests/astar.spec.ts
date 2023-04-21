@@ -1,6 +1,6 @@
+import { expectPath, showPath } from ".";
 import { AStar2D } from "..";
 import { Grid2DFourEdges } from "../../../grid";
-import { expectPath } from "./utils";
 
 describe("grid 4x4 sin obstáculos", () => {
   let grid: Grid2DFourEdges;
@@ -98,4 +98,42 @@ describe("grid 4x4 con flat walls", () => {
       [3,3],
     ]);
   } );
+} );
+
+function genSample4x4() {
+  const grid: Grid2DFourEdges = new Grid2DFourEdges( {
+    size: [4, 4],
+  } );
+
+  grid.init();
+  const start = grid.get([0,0]);
+  const end = grid.get([grid.size[0] - 1, grid.size[1] - 1]);
+  const aStar: AStar2D = new AStar2D( {
+    start,
+    end,
+    grid,
+  } );
+
+  return aStar;
+}
+
+it("expect path error", () => {
+  const got = genSample4x4().search();
+
+  expect(got).toBeDefined();
+  expect(got.length).toBe(7);
+
+  expect(() => {
+    expectPath(got, [
+      [0,0],
+      [0,1],
+    ]);
+  } ).toThrow();
+} );
+
+it("showPath without errors", () => {
+  const aStar = genSample4x4();
+  const got = aStar.search();
+
+  showPath(got);
 } );

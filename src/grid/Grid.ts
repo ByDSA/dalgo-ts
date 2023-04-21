@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/no-cycle, max-classes-per-file
+// eslint-disable-next-line max-classes-per-file
+import { assertDefined } from "~/utils/asserts";
 import { Graph, GraphCachedNeighborsBehavior, GraphNeighborsBehavior } from "../graph";
 import { MultiArray } from "../multi-array";
 import { VectorN } from "../vector";
@@ -29,8 +30,11 @@ export default abstract class Grid<D extends number, N extends GridPoint<D> = Gr
   }
 
   private assertInitialized() {
-    if (this.content === undefined)
-      throw new Error("Grid not initialized");
+    try {
+      assertDefined(this.content);
+    } catch (e) {
+      throw new Error("Grid not initialized. Call init method first.");
+    }
   }
 
   get(location: VectorN<D>): N {
