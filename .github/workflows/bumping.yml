@@ -68,7 +68,7 @@ jobs:
 
           if [ $first_release -eq 1 ]; then
             echo "No se ha encontrado ningún commit de release. Se considera que es la primera release."
-            pnpm version:release -- --first-release --no-verify
+            pnpm run version:release --first-release --no-verify
           else
             echo "Último commit de release: $last_release_commit"
             echo ""
@@ -86,7 +86,7 @@ jobs:
               echo "Commits nuevos a considerar para el bumping:"
               git log $last_release_commit..HEAD --pretty=format:"%s" | grep -E "$filter"
 
-              pnpm version:release -- --no-verify
+              pnpm run version:release --no-verify
             fi
           fi
 
