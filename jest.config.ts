@@ -1,4 +1,6 @@
+import { existsSync } from "fs";
 import { Config } from "jest";
+import { join } from "path";
 
 const coverageThreshold: Config["coverageThreshold"] = {
   global: {
@@ -8,6 +10,23 @@ const coverageThreshold: Config["coverageThreshold"] = {
     statements: 80,
   },
 };
+const setupFilesAfterEnv: Config["setupFilesAfterEnv"] = [
+  "jest-expect-message",
+];
+const moduleNameMapper: Config["moduleNameMapper"] = {
+  "^~($|/.*)$": "<rootDir>/src/$1",
+};
+const testsFolder = join(__dirname, "tests");
+
+if (existsSync(testsFolder)) {
+  const setupPath = join(testsFolder, "setup.js");
+
+  if (existsSync(setupPath))
+    setupFilesAfterEnv.push("<rootDir>/tests/setup.js");
+
+  moduleNameMapper["^~tests($|/.*)$"] = "<rootDir>/tests/$1";
+}
+
 const config: Config = {
   moduleDirectories: [
     "node_modules",
@@ -22,11 +41,8 @@ const config: Config = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  setupFilesAfterEnv: ["jest-expect-message", "<rootDir>/tests/setup.js"],
-  moduleNameMapper: {
-    "^~($|/.*)$": "<rootDir>/src/$1",
-    "^#tests($|/.*)$": "<rootDir>/tests/$1",
-  },
+  setupFilesAfterEnv,
+  moduleNameMapper,
   coverageThreshold,
 };
 
