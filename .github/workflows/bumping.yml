@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Extraer nombre de la rama actual
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
         id: current_branch
 
       - name: "Checkout"
